@@ -62,46 +62,39 @@ def checkWinner(card1, card2):
         spacePosition = card.index(' ')
         return card[spacePosition:]
 
-    if (colour(card1) == 'Red' and colour(card2) == 'Black'):
-        print('Player 1 wins!')
+    def player1Win(message = 'Player 1 wins!'):
+        print(message)
         player1.append(player2[len(player2)-1])
         player2.pop(len(player2)-1)
+
+    def player2Win(message = 'Player 2 wins!'):
+        print(message)
+        player2.append(player1[len(player1)-1])
+        player1.pop(len(player1)-1)
+
+    if (colour(card1) == 'Red' and colour(card2) == 'Black'):
+        player1Win()
 
     if (colour(card1) == 'Red' and colour(card2) == 'Yellow'):
-        print('Player 2 wins!')
-        player2.append(player1[len(player1)-1])
-        player1.pop(len(player1)-1)
-    
+        player2Win()
+   
     if (colour(card1) == 'Yellow' and colour(card2) == 'Red'):
-        print('Player 1 wins!')
-        player1.append(player2[len(player2)-1])
-        player2.pop(len(player2)-1)
+        player1Win()
 
     if (colour(card1) == 'Yellow' and colour(card2) == 'Black'):
-        print('Player 2 wins!')
-        player2.append(player1[len(player1)-1])
-        player1.pop(len(player1)-1)
-    
+        player2Win()
+   
     if (colour(card1) == 'Black' and colour(card2) == 'Yellow'):
-        print('Player 1 wins!')
-        player1.append(player2[len(player2)-1])
-        player2.pop(len(player2)-1)
-    
+        player1Win()
+   
     if (colour(card1) == 'Black' and colour(card2) == 'Red'):
-        print('Player 2 wins!')
-        player2.append(player1[len(player1)-1])
-        player1.pop(len(player1)-1)
+        player2Win()
 
     if (colour(card1) == colour(card2)):
         if (int(value(card1)) > int(value(card2))):
-            player1.append(player2[len(player2)-1])
-            player2.pop(len(player2)-1)
-            print('Both players have the same colour card, player 1 has a high card.  Player 1 wins!')
+            player1Win('Both players have the same colour card, player 1 has a high card.  Player 1 wins!')
         else:
-            player2.append(player1[len(player1)-1])
-            player1.pop(len(player1)-1)
-            print('Both players have the same colour card, player 2 has a high card.  Player 2 wins!')
-    
+            player2Win('Both players have the same colour card, player 2 has a high card.  Player 2 wins!')
 
 def gameLoop(i):
     playerAction(player1, i)

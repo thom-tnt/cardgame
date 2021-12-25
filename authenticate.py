@@ -1,6 +1,6 @@
 credentials = { 'a': 'a', 'b': 'b', 'thom': 'homework' }
 
-print('here is the hash value for thom = %s' % hash('homework'))
+# print('here is the hash value for thom = %s' % hash('homework'))
 
 def authenticate(id):
     player_valid = False
